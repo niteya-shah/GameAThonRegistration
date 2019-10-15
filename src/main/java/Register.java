@@ -38,8 +38,6 @@ public class Register {
 
   @FXML private Button makePayment;
 
-  @FXML private Label allPaid;
-
   public Register(LoginFormController lfc) {
 
     this.myStage = lfc.myStage;
@@ -54,7 +52,7 @@ public class Register {
 
       loader.setController(this);
 
-      myStage.setScene(new Scene(loader.load(), 400, 400));
+      myStage.setScene(new Scene(loader.load(), 800, 510));
 
       myStage.setTitle("Register for Event");
 
@@ -64,6 +62,8 @@ public class Register {
       System.out.println(e);
     }
     window = makePayment.getScene().getWindow();
+    makePayment.getScene().getStylesheets().add(GameAThonRegistration.class.getResource("bootstrap3.css").toExternalForm());
+
   }
 
   public Register(CreateUser cu) {
@@ -79,7 +79,7 @@ public class Register {
 
       loader.setController(this);
 
-      myStage.setScene(new Scene(loader.load(), 400, 400));
+      myStage.setScene(new Scene(loader.load(), 800, 510));
 
       myStage.setTitle("Register for Event");
 
@@ -89,11 +89,6 @@ public class Register {
     window = makePayment.getScene().getWindow();
   }
 
-  /**
-   * Show the stage that was loaded in the constructor    window =
-   * makePayment.getScene().getWindow();
-   */
-
   @FXML
   private void initialize() {
     try {
@@ -102,7 +97,6 @@ public class Register {
       System.out.println(e);
     }
     lbl.setText("Hello " + name);
-    allPaid.setVisible(false);
     makePayment.setOnAction(event -> {
       try {
         pay();
@@ -214,8 +208,6 @@ public class Register {
 
       if (count == 4) {
         makePayment.setDisable(true);
-        allPaid.setText("You have Registered for all Events");
-        allPaid.setVisible(true);
 
         new CreateAlert(
             Alert.AlertType.INFORMATION, window, "Registered for All",

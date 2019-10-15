@@ -50,6 +50,8 @@ public class CreateUser {
       e.printStackTrace();
     }
     window = createUser.getScene().getWindow();
+    createUser.getScene().getStylesheets().add(GameAThonRegistration.class.getResource("bootstrap3.css").toExternalForm());
+
   }
 
   @FXML

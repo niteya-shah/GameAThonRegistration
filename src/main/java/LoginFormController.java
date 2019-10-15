@@ -40,6 +40,7 @@ public class LoginFormController {
       e.printStackTrace();
     }
     window = CreateUser.getScene().getWindow();
+    CreateUser.getScene().getStylesheets().add(GameAThonRegistration.class.getResource("bootstrap3.css").toExternalForm());
   }
 
   public void showStage() { myStage.showAndWait(); }
